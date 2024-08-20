@@ -9,16 +9,18 @@ body {
     color: #e6005c; /* Valentine red */
     font-weight: bold;
 }
+
 .nav-link {
     color: #333;
 }
+
 .nav-link:hover {
     color: #e6005c;
 }
 
 /* Main Content */
 h1 {
-    color: #e6005c;
+    color: #F5004F;
 }
 
 /* Card Styles */
@@ -41,7 +43,7 @@ h1 {
 }
 
 .card-title {
-    color: #e6005c; /* Valentine red */
+    color: #F5004F; /* Valentine red */
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -53,7 +55,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
     -webkit-box-orient: vertical;
 }
 
@@ -67,8 +69,139 @@ h1 {
     background-color: #cc004b;
 }
 
+/* Confession Content Styles */
+.confession-content {
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Interaction Buttons */
+.btn-interaction {
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+}
+
+.btn-interaction:focus {
+    outline: none;
+}
+
+.btn-interaction.clicked {
+    color: #e6005c; /* Valentine red */
+}
+
+/* Interaction Container */
+.interaction-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Count Styles */
+.interaction-container .count {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+/* Comment Section */
+.comment-section {
+    margin-top: 30px;
+}
+
+.comment-input {
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #f1f3f5;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Sidebar Widget Titles */
+.sidebar h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    
+}
+
+/* Sidebar Widget */
+.widget {
+    margin-bottom: 30px;
+}
+
+/* Tag Cloud */
+.tagcloud {
+    margin-bottom: 20px;
+}
+
+.tagcloud h5 {
+    margin-bottom: 10px;
+    color: #333; /* Darker color for the title */
+}
+
+.tag-cloud-link {
+    display: inline-block; 
+    margin: 5px; 
+    padding: 5px 10px;
+    background-color: #e9ecef; 
+    border-radius: 20px; 
+    color: #007bff; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease; 
+}
+
+.tag-cloud-link:hover {
+    background-color: #007bff; /* Primary color on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Recent Comments */
+.recent-comments-section {
+    margin-top: 20px;
+}
+
+.recent-comments-section h5 {
+    margin-bottom: 10px;
+    color: #333; /* Darker color for the title */
+}
+
+.list-group-item {
+    border: none; /* Remove borders */
+    padding: 10px 0; /* Adjust padding */
+    background-color: #f8f9fa; /* Match sidebar background */
+}
+
+.list-group-item strong {
+    color: #007bff; /* Primary color for usernames */
+}
+
+.list-group-item p {
+    margin: 0; /* Remove margin */
+    color: #666; /* Softer color for comments */
+    font-size: 14px;
+}
+
 /* Footer */
 footer {
     background-color: #f8f9fa;
     padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
 }
