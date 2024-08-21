@@ -1,6 +1,7 @@
 <?php
-include 'header.php';
-include '../config/fetch.php';
+$pageTitle= "Confession";
+include './includes/header.php';
+
 
 $id = $_GET['id'];
 
@@ -35,18 +36,7 @@ $recent_comments = $recent_comments_result->fetch_all(MYSQLI_ASSOC);
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fungua Roho - Confession</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-<body>
  
     <div class="container">
         <div class="row">
@@ -120,14 +110,4 @@ $conn->close();
     </div>
     </div>
 
-    <footer class="text-center mt-5">
-        <p>&copy; 2024 Fungua Roho. All rights reserved.</p>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-    // JavaScript for interactions and comments submission
-    </script>
-</body>
-
-</html>
+<?php include './includes/footer.php';?>
