@@ -1,6 +1,5 @@
 <?php
-include '../config/server.php';
-include 'functions.php';
+require_once 'functions.php';
 
 if (isset($_POST['saveUser'])) {
    

@@ -1,12 +1,14 @@
 <?php
+$current_category = isset($_GET['category']) ? urldecode($_GET['category']) : '';
+$pageTitle = 'Fungua Roho - ' . htmlspecialchars($current_category);
 
 include './includes/header.php';
 
 // Capture the category from the URL parameter
-$current_category = isset($_GET['category']) ? urldecode($_GET['category']) : '';
+
 
 // Define the page title, meta description, and keywords specific to this page
-$pageTitle =  htmlspecialchars($current_category);
+
 $metaDescription = "Explore confessions in the " . htmlspecialchars($current_category) . " category.";
 $metaKeywords = "confessions, " . htmlspecialchars($current_category) . ", secrets, Fungua Roho";
 

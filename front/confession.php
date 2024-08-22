@@ -1,5 +1,5 @@
 <?php
-$pageTitle= "Confession";
+$pageTitle= "Fungua Roho -Confession";
 include './includes/header.php';
 
 

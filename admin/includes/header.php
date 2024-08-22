@@ -1,3 +1,6 @@
+<?php
+require_once 'authentication.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,14 +22,13 @@
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-    <?php include 'sidebar.php' ?>
+    <?php include 'sidebar.php'; ?>
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
 
-    <?php include 'navbar.php' ?>
+    <?php include 'navbar.php'; ?>
 
     <div class="container-fluid py-4">

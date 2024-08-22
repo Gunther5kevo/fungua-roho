@@ -1,8 +1,10 @@
-<?php include '../config/fetch.php';
-include '../config/server.php'?>
+<?php 
+require_once '../admin/functions.php';
+session_start(); 
+include '../config/fetch.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +16,9 @@ include '../config/server.php'?>
 </head>
 <style>
     .sidebar {
-            background-color: #f8f9fa;
-            padding: 15px;
-        }
+        background-color: #f8f9fa;
+        padding: 15px;
+    }
 </style>
-
 <?php include 'navbar.php';?>
 <body>
