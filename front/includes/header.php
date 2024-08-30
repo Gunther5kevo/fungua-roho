@@ -1,6 +1,7 @@
 <?php 
-require_once '../admin/functions.php';
-session_start(); 
+
+include '../admin/functions.php';
+
 include '../config/fetch.php';
 ?>
 <!DOCTYPE html>
@@ -8,7 +9,11 @@ include '../config/fetch.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php if(isset($pageTitle)) {echo $pageTitle;} else{echo 'Fungua Roho';}?></title>
+    <title><?php if(isset($pageTitle)) {echo $pageTitle;} else{echo webSetting('title') ?? "Fungua Roho";}?></title>
+    
+    <meta name="description" content="<?= webSetting('meta_description') ?? "Meta Desc"; ?>">
+    <meta name="keyword" content="<?= webSetting('meta_keyword') ?? "Meta Keyword"; ?>">
+    
     <meta name="description" content="Explore confessions on love, family, deep secrets, and more.">
     <meta name="keywords" content="confessions, love, secrets, family, Fungua Roho">
     <link rel="stylesheet" href="./css/styles.css">

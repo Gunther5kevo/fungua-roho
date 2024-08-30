@@ -24,7 +24,7 @@ $recent_comments_sql = "SELECT username, content FROM comments ORDER BY created_
 $comments_result = $conn->query($recent_comments_sql);
 $recent_comments = $comments_result ? $comments_result->fetch_all(MYSQLI_ASSOC) : [];
 
-$conn->close();
+
 ?>
 <?= alertMessage(); ?>
 <section class="search-bar-tab bg-light py-3 my-4">

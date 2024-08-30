@@ -1,3 +1,7 @@
+
+<?php include 'footer-content.php'; 
+
+?>
 <footer class="text-center mt-5">
         <p>&copy; 2024 Fungua Roho. All rights reserved.</p>
     </footer>

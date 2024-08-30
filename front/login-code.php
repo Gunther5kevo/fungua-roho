@@ -1,6 +1,6 @@
 <?php
 require_once('../admin/functions.php');
-session_start();
+
 
 if (isset($_POST['loginBtn'])) {
     $emailInput = validate($_POST['email']);

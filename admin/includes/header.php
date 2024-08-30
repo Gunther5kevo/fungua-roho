@@ -1,5 +1,5 @@
 <?php
-require_once 'authentication.php';
+include 'authentication.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

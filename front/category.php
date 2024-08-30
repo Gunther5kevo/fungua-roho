@@ -29,7 +29,7 @@ $result = $stmt->get_result();
 
 $confessions = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
-$conn->close();
+
 
 
 ?>

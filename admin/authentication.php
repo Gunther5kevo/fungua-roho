@@ -1,7 +1,7 @@
 <?php
 
-require_once('functions.php');
-session_start();  
+include('functions.php');
+
 
 if (isset($_SESSION['auth'])) {
     if (isset($_SESSION['loggedInUserRole']) && isset($_SESSION['loggedInUser']['email'])) {

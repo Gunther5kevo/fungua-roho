@@ -1,4 +1,5 @@
 <?php include('includes/header.php'); 
+
     
 ?>
 
@@ -10,6 +11,7 @@
                 <h4>User Lists <a href="users-create.php" class="btn btn-primary float-end">Add Users</a></h4>
             </div>
             <div class="card-body">
+                <?= alertMessage();?>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -59,3 +61,4 @@
     </div>
 </div>
 <?php include('includes/footer.php'); ?>
+

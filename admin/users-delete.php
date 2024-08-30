@@ -7,7 +7,7 @@ if (is_numeric($paramId)) {
     $userId = validate($paramId);
 
     // Use $conn instead of $pdo
-    $user = getById($conn, 'users', $userId);
+    $user = getById( 'users', $userId);
 
     if ($user['status'] == 200) {
         $userDeleteRes = deleteQuery($conn, 'users', $userId);

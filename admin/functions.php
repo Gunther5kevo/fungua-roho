@@ -1,6 +1,7 @@
 <?php
 include '../config/server.php';
 
+session_start();
 
 function validate($inputData) {
     global $conn;
@@ -21,6 +22,15 @@ function alertMessage() {
         </div>';
         unset($_SESSION['status']);
     } 
+}
+
+function webSetting($columnName) {
+    $setting = getById('settings', 1); 
+    if ($setting['status'] == 200 && isset($setting['data'][$columnName])) {
+        return $setting['data'][$columnName];
+    } else {
+        return null; 
+    }
 }
 
 
@@ -52,29 +62,54 @@ function deleteQuery($conn, $tableName, $id) {
         return false;
     }
 }
+function getById($tableName, $id) {
+    global $conn;
 
-function getById($conn, $tableName, $id) {
-    $table = validate($tableName);
+    // Validate and wrap the table name with backticks
+    $table = "`" . validate($tableName) . "`";
     $id = validate($id);
 
+    // Prepare the SQL statement
     $query = "SELECT * FROM $table WHERE id = ? LIMIT 1";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result()->fetch_assoc();
+    if ($stmt = $conn->prepare($query)) {
+        // Bind the parameters
+        $stmt->bind_param("i", $id);
 
-    if ($result) {
-        return [
-            'status' => 200,
-            'data' => $result
-        ];
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $result = $stmt->get_result();
+
+        // Fetch the associative array
+        $data = $result->fetch_assoc();
+
+        // Check if any data was fetched
+        if ($data) {
+            $stmt->close();
+            return [
+                'status' => 200,
+                'data' => $data
+            ];
+        } else {
+            $stmt->close();
+            return [
+                'status' => 404,
+                'message' => 'No Data Record'
+            ];
+        }
     } else {
+        // Prepare failed, return error details and the actual query
         return [
-            'status' => 404,
-            'message' => 'No Data Record'
+            'status' => 500,
+            'message' => 'SQL Preparation Error: ' . $conn->error,
+            'query' => $query
         ];
     }
 }
+
+
+
 
 function getAll($conn, $tableName) {
     $table = validate($tableName);

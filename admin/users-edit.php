@@ -1,4 +1,5 @@
 <?php include('includes/header.php'); 
+
       
 ?>
 
@@ -21,7 +22,7 @@
                         }
 
                         // Use $conn instead of $pdo
-                        $user = getById($conn, 'users', $id);
+                        $user = getById( 'users', $id);
 
                         if ($user['status'] == 200) {
                     ?>
