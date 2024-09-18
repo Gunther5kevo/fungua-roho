@@ -2,7 +2,11 @@
 include '../config/server.php';
 include '../config/fetch.php';
 
+
 $tag_name = $_GET['tag'];
+
+$pageTitle= "Fungua Roho -$tag_name";
+include './includes/header.php';
 
 // Fetch tag details and related confessions
 $tag_sql = "SELECT id FROM tags WHERE name = ?";
@@ -33,19 +37,12 @@ $stmt->execute();
 $confessions_result = $stmt->get_result();
 $confessions = $confessions_result->fetch_all(MYSQLI_ASSOC);
 
-$conn->close();
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fungua Roho - Tag: <?php echo htmlspecialchars($tag_name); ?></title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+
+
 <style>
     .sidebar {
             background-color: #f8f9fa;
@@ -54,7 +51,7 @@ $conn->close();
 </style>
 
 <body>
-    <?php include('./includes/navbar.php'); ?>
+    
 
     <main class="container">
         <div class="row">

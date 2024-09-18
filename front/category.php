@@ -62,8 +62,7 @@ $confessions = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
                             <a href="confession.php?id=<?php echo $confession['id']; ?>" class="btn btn-link">Read
                                 More</a>
                             <div class="like-dislike-container mt-2">
-                                <button class="btn btn-link">👍</button>
-                                <button class="btn btn-link">👎</button>
+                                
                             </div>
                         </div>
                         <hr>
@@ -94,17 +93,7 @@ $confessions = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
             </div>
 
             <!-- Recent Comments -->
-            <div class="recent-comments-section mb-4">
-                <h5>Recent Comments</h5>
-                <ul class="list-group">
-                    <?php foreach ($recent_comments as $comment): ?>
-                    <li class="list-group-item">
-                        <strong><?php echo htmlspecialchars($comment['username']); ?>:</strong>
-                        <p><?php echo htmlspecialchars(substr($comment['content'], 0, 50)) . '...'; ?></p>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+            <?php include 'recent_comments.php';?>
         </div>
 
     </div>

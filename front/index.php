@@ -15,14 +15,7 @@ $random_confessions_sql = "SELECT confessions.id, confessions.title, confessions
 $result = $conn->query($random_confessions_sql);
 $random_confessions = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
-// Fetch tags and recent comments
-$tags_sql = "SELECT name, COUNT(*) AS item_count FROM tags GROUP BY name ORDER BY item_count DESC";
-$tags_result = $conn->query($tags_sql);
-$tags = $tags_result ? $tags_result->fetch_all(MYSQLI_ASSOC) : [];
 
-$recent_comments_sql = "SELECT username, content FROM comments ORDER BY created_at DESC LIMIT 5";
-$comments_result = $conn->query($recent_comments_sql);
-$recent_comments = $comments_result ? $comments_result->fetch_all(MYSQLI_ASSOC) : [];
 
 
 ?>
@@ -52,10 +45,7 @@ $recent_comments = $comments_result ? $comments_result->fetch_all(MYSQLI_ASSOC) 
                             <p><?php echo substr(htmlspecialchars($confession['content']), 0, 100) . '...'; ?></p>
                             <a href="confession.php?id=<?php echo $confession['id']; ?>" class="btn btn-link">Read
                                 More</a>
-                            <div class="like-dislike-container mt-2">
-                                <button class="btn btn-link">👍</button>
-                                <button class="btn btn-link">👎</button>
-                            </div>
+                            
                         </div>
                         <hr>
                     </div>
@@ -83,17 +73,7 @@ $recent_comments = $comments_result ? $comments_result->fetch_all(MYSQLI_ASSOC) 
             </div>
 
             <!-- Recent Comments -->
-            <div class="recent-comments-section mb-4">
-                <h5>Recent Comments</h5>
-                <ul class="list-group">
-                    <?php foreach ($recent_comments as $comment): ?>
-                    <li class="list-group-item">
-                        <strong><?php echo htmlspecialchars($comment['username']); ?>:</strong>
-                        <p><?php echo htmlspecialchars(substr($comment['content'], 0, 50)) . '...'; ?></p>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+            <?php include 'recent_comments.php';?>
         </div>
     </div>
 </main>

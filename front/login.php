@@ -1,9 +1,14 @@
 <?php
 $pageTitle = 'Login';
 include './includes/header.php';
+include 'google-signin.php';
 
 if(isset($_SESSION['auth'])){
     redirect('index.php', 'You are already Logged In');
+}
+
+if (!isset($client)) {
+    die('Google Client is not initialized properly.');
 }
 ?>
 
@@ -30,10 +35,19 @@ if(isset($_SESSION['auth'])){
                                 <label>Password</label>
                                 <input type="password" name="password" class="form-control" required>
                             </div>
+                            <div class="mb-3 text-end">
+                                <a href="forgot-password.php" class="text-decoration-none">Forgot Password?</a>
+                            </div>
                             <div class="mb-4"> 
                                 <button type="submit" name="loginBtn" class="btn btn-primary w-100">Login</button>
                             </div>
                         </form>
+                        <hr>
+                        <div class="mb-3 text-center">
+                            <a href="<?php echo htmlspecialchars($client->createAuthUrl(), ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger w-100">
+                                <i class="fab fa-google"></i> Sign in with Google
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

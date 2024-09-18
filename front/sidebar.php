@@ -17,15 +17,5 @@
     </div>
 
     <!-- Recent Comments -->
-    <div class="recent-comments-section mb-4">
-        <h5>Recent Comments</h5>
-        <ul class="list-group">
-            <?php foreach ($recent_comments as $comment): ?>
-            <li class="list-group-item">
-                <strong><?php echo htmlspecialchars($comment['username']); ?>:</strong>
-                <p><?php echo htmlspecialchars(substr($comment['content'], 0, 50)) . '...'; ?></p>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+  <?php include 'recent_comments.php';?>
 </div>
